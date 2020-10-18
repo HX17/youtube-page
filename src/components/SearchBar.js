@@ -1,33 +1,61 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 
-class SearchBar extends Component {
-  state = {
-    term: "",
-  };
+const SearchBar = (props) => {
+  const [term, setTerm] = useState("");
 
-  onFormSubmit = (e) => {
+  const onFormSubmit = (e) => {
     e.preventDefault();
 
-    // todo: make sure we call callback from parent component
-    this.props.onSubmit(this.state.term);
+    props.onSubmit(term);
   };
 
-  render() {
-    return (
-      <div className="search-bar ui segment">
-        <form className="ui form" onSubmit={this.onFormSubmit}>
-          <div className="field">
-            <label>Video Search</label>
-          </div>
-          <input
-            type="text"
-            value={this.state.term}
-            onChange={(e) => this.setState({ term: e.target.value })}
-          />
-        </form>
-      </div>
-    );
-  }
-}
+  return (
+    <div className="search-bar ui segment">
+      <form className="ui form" onSubmit={onFormSubmit}>
+        <div className="field">
+          <label>Video Search</label>
+        </div>
+        <input
+          type="text"
+          onChange={(e) => setTerm(e.target.value)}
+          value={term}
+        />
+      </form>
+    </div>
+  );
+};
 
 export default SearchBar;
+
+// import React, { Component } from "react";
+// class SearchBar extends Component {
+//   state = {
+//     term: "",
+//   };
+
+//   onFormSubmit = (e) => {
+//     e.preventDefault();
+
+//     // todo: make sure we call callback from parent component
+//     this.props.onSubmit(this.state.term);
+//   };
+
+//   render() {
+//     return (
+//       <div className="search-bar ui segment">
+//         <form className="ui form" onSubmit={this.onFormSubmit}>
+//           <div className="field">
+//             <label>Video Search</label>
+//           </div>
+//           <input
+//             type="text"
+//             value={this.state.term}
+//             onChange={(e) => this.setState({ term: e.target.value })}
+//           />
+//         </form>
+//       </div>
+//     );
+//   }
+// }
+
+// export default SearchBar;
