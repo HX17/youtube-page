@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const KEY = "AIzaSyCT4-SBymbIZmdhH9MDhGdjX1TM4ucMw60";
+const KEY = "AIzaSyBx5pyzD8wXcTsjSecLqtCxngmotA4zTQw";
 
 // pre-config of axios
 export default axios.create({
